@@ -9,7 +9,10 @@ class Shelf extends Component {
 
   render() {
     return (
-    <section>Shelf</section>
+    <section>
+      
+      <span>{this.props.shelf}</span>
+    </section>
     )
   }
 }

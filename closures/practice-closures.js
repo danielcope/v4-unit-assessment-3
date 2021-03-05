@@ -8,13 +8,17 @@
     myFunc should return getSecretString
   */
   
-  //CODE HERE
+function myFunc () {
+  let myStr = 'super secret string'
 
+  getSecretString = () => myStr
+
+  return getSecretString
+}
   
   //Now create a variable called secretString. Its value should be the invocation of myFunc.
 
-  //CODE HERE
-  
+let secretString = myFunc()  
   
   ////////////PROBLEM 2////////////
 
@@ -28,28 +32,37 @@
     The lightSwitch function should return flipTheSwitch.
   */
   
-  //CODE HERE
+function lightSwitch (){
+  let isTheLightOn = false
 
+  flipTheSwitch = () => {
+      if (isTheLightOn === true){
+      isTheLightOn = false
+      return `The light is on`
+    } else if (isTheLightOn === false){
+      isTheLightOn = true
+      return `The light is off`
+    }
+  }
+  return flipTheSwitch
+}
   
   //Create a variable called kitchenSwitch whose value is the invocation of lightSwitch.
   
-  //CODE HERE
-
+let kitchenSwitch = lightSwitch()
   
   //Invoke kitchenSwitch.
 
-  //CODE HERE
-  
-  
-  //Create a variable called bathroomSwitch whose value is the invocation of lightSwitch. 
+kitchenSwitch()  
 
-  //CODE HERE
+//Create a variable called bathroomSwitch whose value is the invocation of lightSwitch. 
+
+let bathroomSwitch = lightSwitch()  
   
   
   //Invoke bathroomSwitch twice.
   
-  //CODE HERE
-
+bathroomSwitch()
   
   
   ////////////PROBLEM 3////////////
@@ -63,7 +76,25 @@
       - 'prunePlant' should subtract 1 from the height and return the new height
   */
 
-  //CODE HERE
+  function plantTracker () {
+    let plant = 'fern'
+    let height = 12
+
+    return {
+      readInfo: function (){
+        return `This is a ${plant} plant that is ${height} inches tall.`  
+      },
+
+      waterPlant: function (){
+        return ++height
+      },
+
+      prunePlant: function (){
+        return --height
+      }
+    }
+
+  }
 
 
   ////////////PROBLEM 4////////////
@@ -78,19 +109,37 @@
         - hint: try to find the index of the string first
   */
 
-  //CODE HERE
+  function inventory () {
+    let products = []
 
+    return {
+      readProducts: function (){
+        return products
+      },
+
+      addToProducts: function(item){
+        products.push(item)
+      },
+
+      deleteFromProducts: function(item){
+        for (let i = 0; i < products.length;i++){
+          if (item.toLowerCase() === products[i].toLowerCase()){
+            products.splice(products[i],1)
+          }
+        }
+      }
+
+    }
+  }
 
   /*
     Create a variable called 'shoes' whose value is the invocation of inventory.
   */
 
-  //CODE HERE
-
+let shoes = inventory()
 
   /*
     Add an item to your shoes array using the addToProducts function
   */
 
-  //CODE HERE
-
+shoes.addToProducts('vans')

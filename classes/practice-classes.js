@@ -74,9 +74,9 @@ let ralph = new NPC ('Ralph','human','Niceland',"I'm gonna wreck it!")
     Third, make a variable named ralphsLocation whose value will be Ralph's location.
 */
 
-let ralphsInfo = this.ralph.getInfo()
-let ralphsLocation = NPC.ralph.location
-
+let ralphsInfo = ralph.getInfo()
+let ralphsDialogue = ralph.dialogue()
+let ralphsLocation = ralph.location
 
 //////////////////PROBLEM 3////////////////////
 
@@ -101,7 +101,34 @@ let ralphsLocation = NPC.ralph.location
   Call your new class Player
 */
 
-//CODE HERE
+class Player extends Character {
+  constructor (name,type,healthLevel,attackLevel){
+    super(name,type);
+    this.healthLevel = healthLevel
+    this.attackLevel = attackLevel
+  }
+
+    getInfo(){
+      super.getInfo
+    }
+
+    dialogue () {
+      super.dialogue
+    }
+
+    defend (amount) {
+      this.healthLevel = this.healthLevel - amount
+      if (this.healthLevel > 0){
+        return {
+          attackStrength:amount,
+          remainingHealth: this.healthLevel,
+          message: `${this.name} is still in the fight!`
+        }
+      } else {
+        return `${this.name} has been defeated!`
+      }
+    }
+}
 
 /*
     Next, we'll create two Players.
@@ -111,7 +138,8 @@ let ralphsLocation = NPC.ralph.location
     and he's a firebender type with a 100 healthLevel and 0 attackLevel.
 */
 
-//CODE HERE
+let aang = new Player ('Aang','airbender',100,100)
+let ozai = new Player ('Ozai','firebender',100,0)
 
 /*
     Let's see how a fight between these two would go. 
@@ -120,7 +148,7 @@ let ralphsLocation = NPC.ralph.location
     (You can console log battle to see what happens)
 */
 
-//CODE HERE
+let battle = ozai.defend(aang.attackLevel)
 
 //////////////////PROBLEM 4////////////////////
 
@@ -138,8 +166,33 @@ let ralphsLocation = NPC.ralph.location
       - Example string: `Wonder Woman used flight!`
 */
 
-//CODE HERE
+class Hero extends Player {
+  constructor (name,type,healthLevel,attackLevel,superPowers){
+    super(name,type,healthLevel,attackLevel);
+    this.superPowers = [];
+  }
 
+  getInfo(){
+    super.getInfo
+  }
+
+  dialogue (){
+    super.dialogue
+  }
+
+  defend () {
+    super.defend
+  }
+
+  addSuperPower (power) {
+    this.superPowers.push(power)
+  }
+
+  useSuperPower (index) {
+    return `${this.name} used ${this.superPowers[index]}!`
+  }
+
+}
 /*
   Create a hero named 'Fire Spitter' whose type is 'dragon'. 
   Fire Spitter's healthLevel and attackLevels should both be 5000. 
@@ -149,4 +202,8 @@ let ralphsLocation = NPC.ralph.location
   Last, invoke useSuperPower passing in 0 for the index and store the result in a variable called fireSpitterAttack.
 */
 
-//CODE HERE
+let fireSpitter = new Hero ('Fire Spitter','dragon',5000,5000)
+fireSpitter.addSuperPower('spitting fire')
+fireSpitter.addSuperPower('swallow')
+fireSpitter.addSuperPower('fiery suplex of death')
+let fireSpitterAttack = fireSpitter.useSuperPower(0)

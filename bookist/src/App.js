@@ -41,9 +41,11 @@ class App extends Component {
       <div className="App">
         <header>
           <Header />
+          <section className='search' >
+            <SearchBar />
+          </section>
         </header>
         <body>
-          <SearchBar />
           <section className="booklist">
             <BookList books={this.state.books} addToShelf={this.addToShelf} />
           </section>

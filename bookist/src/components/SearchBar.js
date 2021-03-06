@@ -10,8 +10,8 @@ class SearchBar extends Component {
     return(
       <section>
         <input />
-        <button></button>
-        <button></button>
+        <button>Search</button>
+        <button>Clear search</button>
       </section>
 
     )

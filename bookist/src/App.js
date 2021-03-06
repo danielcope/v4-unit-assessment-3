@@ -12,10 +12,13 @@ class App extends Component {
 
     this.state = {
       books:data,
-      shelf: []
+      shelf: [],
+      userInput:''
+    
     }
     this.addToShelf = this.addToShelf.bind(this)
     this.clearShelf = this.clearShelf.bind(this)
+    this.searchBook = this.searchBook.bind(this)
   }
 
   addToShelf (title) {
@@ -33,16 +36,29 @@ class App extends Component {
   clearShelf() {
     this.setState ({ shelf:[] })
   }
+
+  handleChange = (e) => {
+      this.setState({ userInput: e.target.value })
+  }
+
+  searchBook () {
+    let filteredArr = this.state.books.filter(function(ele,i){
+      if (ele.title.toLowerCase === this.state.userInput.toLowerCase){
+        return ele.title
+      }
+      this.setState({ books:filteredArr })
+    })
+  }
   
  
   render(){
     return (
 
       <div className="App">
-        <header>
+        <header className='header-full'>
           <Header />
           <section className='search' >
-            <SearchBar />
+            <SearchBar handleChange={this.handleChange} searchBook={this.searchBook}/>
           </section>
         </header>
         <body>

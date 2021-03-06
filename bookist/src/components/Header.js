@@ -3,17 +3,12 @@ import '../App.css';
 
 
 class Header extends Component {
-  constructor(){
-    super()
-  }
-
-
-
+ 
   render (){
 
     return (
       <div>
-        <h1>bookist</h1>      
+        <h1 className='main-title'>bookist</h1>      
       </div>
     )
 

@@ -19,17 +19,16 @@ class App extends Component {
     this.addToShelf = this.addToShelf.bind(this)
     this.clearShelf = this.clearShelf.bind(this)
     this.searchBook = this.searchBook.bind(this)
+    this.clearSearch = this.clearSearch.bind(this)
   }
 
   addToShelf (title) {
-    
-    
     let shelfDif = this.state.shelf.map((ele,i) => 
-    <p className='list-items' key={i}>{ele}</p>
-    )
-    
+      <p className='list-items' key={i}>{ele}</p>
+      )
+
     shelfDif.push(title)
-    
+
     this.setState({ shelf:shelfDif })
   }
     
@@ -38,16 +37,20 @@ class App extends Component {
   }
 
   handleChange = (e) => {
-      this.setState({ userInput: e.target.value })
-  }
-
+      this.setState({ userInput: e })
+    }
+    
   searchBook () {
-    let filteredArr = this.state.books.filter(function(ele,i){
-      if (ele.title.toLowerCase === this.state.userInput.toLowerCase){
+    let filteredArr = this.state.books.filter((ele) => {
+      if (ele.title.toLowerCase().includes(this.state.userInput.toLowerCase())){
         return ele.title
       }
-      this.setState({ books:filteredArr })
     })
+    this.setState({ books:filteredArr })
+  }
+
+  clearSearch () {
+    this.setState({ books:data })
   }
   
  
@@ -58,7 +61,7 @@ class App extends Component {
         <header className='header-full'>
           <Header />
           <section className='search' >
-            <SearchBar handleChange={this.handleChange} searchBook={this.searchBook}/>
+            <SearchBar handleChange={this.handleChange} searchBook={this.searchBook} clearSearch={this.clearSearch}/>
           </section>
         </header>
         <body>

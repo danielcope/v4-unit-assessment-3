@@ -9,9 +9,9 @@ class SearchBar extends Component {
 
     return(
       <section>
-        <input className='search-input' onChange={this.props.handleChange}/>
-        <button className='button-one' searchBook={this.searchBook}>Search</button>
-        <button className='button-two'>Clear search</button>
+        <input className='search-input' onChange={(e)=>this.props.handleChange(e.target.value)} placeholder={'search book'}/>
+        <button className='button-one' onClick={this.props.searchBook}>Search</button>
+        <button className='button-two' onClick={this.props.clearSearch}>Clear search</button>
       </section>
 
     )

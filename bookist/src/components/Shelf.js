@@ -10,7 +10,6 @@ class Shelf extends Component {
   render() {
     return (
     <section>
-      
       <span>{this.props.shelf}</span>
     </section>
     )

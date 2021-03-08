@@ -45,6 +45,7 @@ li {
 
 .booklist {
   width: 75vw;
+  margin-top: 50px;
 }
 
 .my-shelf {
@@ -53,6 +54,7 @@ li {
   flex-direction: column;
   align-items: center;
   margin-top: 50px;
+  margin-left: 20px;
 }
 
 .clear {
@@ -62,7 +64,7 @@ li {
 
 .search {
   position: relative; 
-  left: 42vw;
+  left: 40vw;
   top: 40px;
   width: 30vw;
   padding:5px
@@ -89,5 +91,13 @@ li {
 
 .header-full {
   background: white;
-  height: 20vh;
+  height: 10vh;
+}
+
+.separation-bar {
+  width: 1px;
+  height: 70vh;
+  border: rgb(128, 128, 128) solid 1px;
+  position: relative;
+  top: 50px;
 }

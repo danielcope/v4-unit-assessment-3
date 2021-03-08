@@ -23,12 +23,10 @@ class App extends Component {
   }
 
   addToShelf (title) {
-    let shelfDif = this.state.shelf.map((ele,i) => 
-      <p className='list-items' key={i}>{ele}</p>
+    let shelfDif = this.state.shelf.map((ele) => 
+      <p className='list-items'>{ele}</p>
       )
-
     shelfDif.push(title)
-
     this.setState({ shelf:shelfDif })
   }
     
@@ -68,6 +66,7 @@ class App extends Component {
           <section className="booklist">
             <BookList books={this.state.books} addToShelf={this.addToShelf} />
           </section>
+          <section className='separation-bar'></section>
           <section className="my-shelf">
             <h1>My Shelf</h1>
             <button className="clear" onClick={this.clearShelf}>Clear My Shelf</button>
